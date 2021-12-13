@@ -27,6 +27,7 @@ public class ConsultaLlavesEmpleado extends javax.swing.JFrame {
     
     public ConsultaLlavesEmpleado() {//Inicia Constructor
         initComponents();
+        this.setLocationRelativeTo(null);//centra la ventana
     }//Finaliza Constructor
 
     //Metodo para conectar a base de datos
@@ -70,7 +71,8 @@ public class ConsultaLlavesEmpleado extends javax.swing.JFrame {
         jTabbedPane1.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(180, 95, 6));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 95, 6)));
+        jPanel2.setOpaque(false);
 
         btnActualizar.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Cloud.png"))); // NOI18N
@@ -194,8 +196,8 @@ public class ConsultaLlavesEmpleado extends javax.swing.JFrame {
         conectarBase();
         try {
             String rutaReporte="src/reportes/rptLlave.jasper";
-            JasperPrint rptlibrosPDF = JasperFillManager.fillReport(rutaReporte,null,cn);
-            JasperViewer ventanaVisor = new JasperViewer(rptlibrosPDF,false);
+            JasperPrint rptllavesPDF = JasperFillManager.fillReport(rutaReporte,null,cn);
+            JasperViewer ventanaVisor = new JasperViewer(rptllavesPDF,false);
             ventanaVisor.setTitle("Reporte de Llaves Sistema Flores");
             ventanaVisor.setVisible(true);
         } catch (Exception e) {

@@ -95,7 +95,8 @@ public class ConsultaLlaves extends javax.swing.JFrame {
         jTabbedPane5.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
 
         panVer.setBackground(new java.awt.Color(180, 95, 6));
-        panVer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panVer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 95, 6)));
+        panVer.setOpaque(false);
 
         btnActualizar.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Cloud.png"))); // NOI18N
@@ -171,15 +172,19 @@ public class ConsultaLlaves extends javax.swing.JFrame {
         jTabbedPane5.addTab("Ver Inventario", panVer);
 
         panRegistrar.setBackground(new java.awt.Color(180, 95, 6));
-        panRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panRegistrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 95, 6)));
+        panRegistrar.setOpaque(false);
 
         lblCodigo.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Código Llave");
 
         lblCategoria.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblCategoria.setForeground(new java.awt.Color(255, 255, 255));
         lblCategoria.setText("Categoría");
 
         lblNumPiezas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblNumPiezas.setForeground(new java.awt.Color(255, 255, 255));
         lblNumPiezas.setText("Número de Piezas");
 
         btnRegistrar.setBackground(new java.awt.Color(0, 158, 15));
@@ -249,7 +254,8 @@ public class ConsultaLlaves extends javax.swing.JFrame {
         jTabbedPane5.addTab("Registrar Datos Llave", panRegistrar);
 
         panEditar.setBackground(new java.awt.Color(180, 95, 6));
-        panEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 95, 6)));
+        panEditar.setOpaque(false);
 
         btnActualizarEditar.setBackground(new java.awt.Color(255, 255, 0));
         btnActualizarEditar.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
@@ -262,15 +268,19 @@ public class ConsultaLlaves extends javax.swing.JFrame {
         });
 
         lblIDActualizar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblIDActualizar.setForeground(new java.awt.Color(255, 255, 255));
         lblIDActualizar.setText("ID Llave");
 
         lblCodigoActualizar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblCodigoActualizar.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigoActualizar.setText("Código Llave");
 
         lblCategoriaActualizar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblCategoriaActualizar.setForeground(new java.awt.Color(255, 255, 255));
         lblCategoriaActualizar.setText("Categoría");
 
         lblNumeroPiezasActualizar.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        lblNumeroPiezasActualizar.setForeground(new java.awt.Color(255, 255, 255));
         lblNumeroPiezasActualizar.setText("Número de Piezas");
 
         btnBuscarLlave.setBackground(new java.awt.Color(0, 255, 255));
@@ -369,9 +379,11 @@ public class ConsultaLlaves extends javax.swing.JFrame {
         jTabbedPane5.addTab("Editar Datos Llave", panEditar);
 
         panEliminar.setBackground(new java.awt.Color(180, 95, 6));
-        panEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 95, 6)));
+        panEliminar.setOpaque(false);
 
         lblCapturaEliminar.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        lblCapturaEliminar.setForeground(new java.awt.Color(255, 255, 255));
         lblCapturaEliminar.setText("Captura el Código de la Llave a Eliminar ");
 
         txtLlaveEliminar.setFont(new java.awt.Font("Comic Sans MS", 0, 20)); // NOI18N
@@ -419,7 +431,7 @@ public class ConsultaLlaves extends javax.swing.JFrame {
 
         jTabbedPane5.addTab("Eliminar Datos Llave", panEliminar);
 
-        jPanel1.add(jTabbedPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 690, 380));
+        jPanel1.add(jTabbedPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 690, 380));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Background1.png"))); // NOI18N
         jPanel1.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 530));
@@ -558,6 +570,8 @@ public class ConsultaLlaves extends javax.swing.JFrame {
             
             if (rs.next()==true) {
                 txtCategoriaActualizar.setText(rs.getString("categoria"));
+                txtIDActualizar.setText(rs.getString("id_llave"));
+                txtNumeroPiezasActualizar.setText(rs.getString("num_piezas"));
             } else {
                 JOptionPane.showMessageDialog(null,"Error no existe la llave con código\n\n"+ objLlave.getCodigo_llave());
             }
@@ -568,21 +582,22 @@ public class ConsultaLlaves extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarLlaveActionPerformed
 
     private void btnActualizarEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEditarActionPerformed
-         /// Llamada al metodo conectar
-        conectarBase();
-        //Almacenar los valores del formulario en el objeto
-        objLlave.setCodigo_llave(txtCodigoActualizar.getText());//Guarda código en el objeto
-        objLlave.setCategoria(txtCategoriaActualizar.getText());//Guarda categoría en el objeto
-        objLlave.setNum_piezas(Integer.parseInt(txtNumeroPiezasActualizar.getText()));//Guarda valor de tipo entero en el objeto
-        //Variable objeto para registrar un Llave
-        /*String updateLlave = "UPDATE tllaves SET (`id_llave`,`codigo_llave`,`categoria`,`num_piezas`) VALUES ('"+objLlave.getId_llave()+"','"+objLlave.getCodigo_llave()+"','"+objLlave.getCategoria()+"','"+objLlave.getNum_piezas()+"')";*/
-        //Estructura de control de tratamientos de errores en ejecución
+        String actualizarLlave="";
         try {
-            /*stmt.executeUpdate(updateLlave);*/
-            JOptionPane.showMessageDialog(null, "Se actualizo la llave de forma exitosa\n\n"+objLlave.getCodigo_llave());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error de BD al generar edicion de llave\n\nVerifica\n\n"+ e);
-        }
+            conectarBase();
+            
+            objLlave.setId_llave(Integer.parseInt(txtIDActualizar.getText()));
+            objLlave.setCodigo_llave(txtCodigoActualizar.getText());
+            objLlave.setCategoria(txtCategoriaActualizar.getText());
+            objLlave.setNum_piezas(Integer.parseInt(txtNumeroPiezasActualizar.getText()));
+            
+            actualizarLlave="UPDATE tllaves SET id_llave = '"+objLlave.getId_llave()+"', codigo_llave = '"+objLlave.getCodigo_llave()+"', categoria = '"+objLlave.getCategoria()+"', num_piezas = '"+objLlave.getNum_piezas()+"' where codigo_llave = '"+objLlave.getCodigo_llave()+"'";
+            stmt.executeUpdate(actualizarLlave);
+            JOptionPane.showMessageDialog(null, "Datos de llave actualizado\nVerifica tu consulta");
+           } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error de BD Actualizar:\n"+ex);
+           }
+
     }//GEN-LAST:event_btnActualizarEditarActionPerformed
 
     /**
